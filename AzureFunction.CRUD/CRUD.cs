@@ -23,7 +23,7 @@ namespace AzureFunction.CRUD
         }
         [FunctionName("Create")]
         public async Task<IActionResult> Create(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -31,7 +31,7 @@ namespace AzureFunction.CRUD
             User data = JsonConvert.DeserializeObject<User>(requestBody);
             mongoDBService.Create(data);
 
-            return new OkObjectResult(HttpStatusCode.OK);
+            return new OkObjectResult(data);
         }
         [FunctionName("Read")]
         public async Task<User> Read(

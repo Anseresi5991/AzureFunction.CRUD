@@ -15,6 +15,7 @@ namespace AzureFunction.CRUD.Infrastructure
             MongoClient mongoClient = new MongoClient(Environment.GetEnvironmentVariable("CRUDDBConection", EnvironmentVariableTarget.Process));
             var database = mongoClient.GetDatabase(Environment.GetEnvironmentVariable("CRUDDBName", EnvironmentVariableTarget.Process));
             _mongoCollection = database.GetCollection<User>(Environment.GetEnvironmentVariable("UserCollectionName", EnvironmentVariableTarget.Process));
+
         }
         public void Create(User user)
         {

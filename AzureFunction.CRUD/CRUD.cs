@@ -35,7 +35,7 @@ namespace AzureFunction.CRUD
         }
         [FunctionName("Read")]
         public async Task<User> Read(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -46,7 +46,7 @@ namespace AzureFunction.CRUD
         }
         [FunctionName("List")]
         public async Task<List<User>> List(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -55,7 +55,7 @@ namespace AzureFunction.CRUD
         }
         [FunctionName("Update")]
         public async Task<IActionResult> Update(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "put", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -67,7 +67,7 @@ namespace AzureFunction.CRUD
         }
         [FunctionName("Remove")]
         public async Task<IActionResult> Remove(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "delete", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");

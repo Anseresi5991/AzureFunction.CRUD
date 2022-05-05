@@ -63,7 +63,7 @@ namespace AzureFunction.CRUD
             User data = JsonConvert.DeserializeObject<User>(requestBody);
             mongoDBService.Update(data);
 
-            return new OkObjectResult(HttpStatusCode.OK);
+            return new OkObjectResult(data);
         }
         [FunctionName("Remove")]
         public async Task<IActionResult> Remove(
